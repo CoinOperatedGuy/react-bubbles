@@ -20,7 +20,7 @@ const ColorList = ({ colors, updateColors }) => {
   const saveEdit = e => {
     e.preventDefault();
     axiosWithAuth()
-    .put('/colors/${colorToEdit.id}', colorToEdit)
+    .put(`/colors/${colorToEdit.id}`, colorToEdit)
     .then(res => {
       setEditing(false)
       updateColors()
@@ -30,7 +30,7 @@ const ColorList = ({ colors, updateColors }) => {
 
   const deleteColor = color => {
     axiosWithAuth()
-      .delete('./colors/${color.id}')
+      .delete(`./colors/${color.id}`)
       .then(res => updateColors())
   };
 
